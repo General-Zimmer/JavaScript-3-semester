@@ -1,0 +1,8 @@
+div(class="login-form")
+  h2 Login
+  form(action="/auth", method="post")
+    label(for="username") Username
+      input(type="text", name="username", class="form-control", required)
+    label(for="password") Password
+      input(type="password", name="password", class="form-control", required)
+    button(type="submit") Login

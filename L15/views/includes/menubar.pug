@@ -1,0 +1,8 @@
+.menubar 
+    if knownUser 
+        a(href='/', class="menubar") Home
+        a(href='/logout', class="menubar") Logout
+        a(href='/secretpage', class="menubar") secretpage
+    else
+        a(href='/', class="menubar") Home
+        a(href="/login", class="menubar") Login 

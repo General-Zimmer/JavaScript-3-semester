@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+
+</head>
+<body>
+    <h1>Login</h1>
+    <input type="text" id="username" name="username">
+    <input type="password" name="user password" id="password">
+    <button id="submit">Submit</button>
+
+    <script>
+        const button = document.querySelector('button#submit');
+        button.addEventListener('mouseover', event => {
+            const username = document.querySelector('input#username').value;
+            const password = document.querySelector('input#password').value;
+            console.log(username, password);
+            if (document.getElementById('username').value == '') {
+                alert("HVOR FUCK ER DIT USERNAME?!!!!!")
+            } else {
+                alert(`Der står: ${document.getElementById("username").value}`)
+            }
+        });
+    </script>
+</body>
+</html>

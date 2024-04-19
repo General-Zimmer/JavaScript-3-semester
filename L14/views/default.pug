@@ -1,0 +1,9 @@
+html(lang="en")
+    include includes/header
+    body 
+        h1= title
+        p Welcome to #{title}
+        ul 
+            each val in array
+                li= val
+        include includes/footer.pug

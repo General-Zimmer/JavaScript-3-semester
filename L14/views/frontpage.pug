@@ -1,0 +1,9 @@
+html(lang = "en")
+    include includes/header
+    body 
+        h2 Ya ya ya
+        h3 RandomUsers 
+            ul 
+                each val in randomUsers
+                    li= val.name.first 
+        include includes/footer
