@@ -1,5 +1,7 @@
-const express = require('express');
-const session = require('express-session');
+
+import express from 'express';
+import session from 'express-session';
+
 const app = express();
 
 app.use(express.static('assets'));
@@ -8,9 +10,8 @@ app.set('view engine', 'pug');
 
 app.use(session({
     secret: 'keyboard-cat',
-    resave: false,
-    saveUninitialized: true,
-    cookie: { secure: false }
+    resave: true,
+    saveUninitialized: true
 }));
 
 app.use(express.json());
@@ -73,6 +74,31 @@ app.get('/demo', (req, res) => {
     }
     res.end();
 });
+
+import apis from './api/api.js';
+import fs from 'fs';
+
+const api = apis.api;
+
+app.use('/api', api);
+
+api.post('/user', async (request, response) => {
+    let userName = request.body.userName;
+    await writeFile({name: userName});
+    response.status(200).send({status: 200});
+});
+
+async function readFile() {
+    let data = fs.readFileSync('users.json', {encoding: 'utf8'});
+    return JSON.parse(data);
+}
+
+async function writeFile(data) {
+    let existingUsers = await readFile();
+    existingUsers.push(data);
+    await fs.promises.writeFile('users.json', JSON.stringify(existingUsers), {encoding: 'utf8'});
+}
+
 
 app.listen(3000, () => {
     console.log('Server is running on port 3000');
