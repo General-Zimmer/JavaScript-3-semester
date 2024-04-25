@@ -1,10 +1,11 @@
 body {
-    background: linear-gradient(to bottom, #00a2ff, #0479ff, #2773ff);
+    background: linear-gradient(to bottom, #00a2fff1, #0479ff, #2773ff);
     margin: 0;
     padding: 0;
     font-family: 'Segoe UI', Tahoma, Verdana, sans-serif;
     height: 100vh;
 }
+
 
 body>h1 {
     color: white;
@@ -32,29 +33,36 @@ body>h1 {
 .login-form input[type="password"], .login-form input[type="text"] {
     width: 100%;
     padding: 1rem;
-    background-color: #00a2ff;
+    background-color: #3bb7ff;
     border: 0;
     box-sizing: border-box;
     cursor: pointer;
     font-weight: bold;
     color: black;
     margin-bottom: 1rem;
-    
+    border-radius: 0.75rem
 }
 
 .login-form button[type="submit"] {
     width: 100%;
     padding: 1rem;
-    background-color: rgb(45, 120, 182);
+    background-color: #0a40a5;
     border: 0;
     box-sizing: border-box;
     cursor: pointer;
     font-weight: bold;
-    color: black;
+    color: #000000;
+    border-radius: 0.75rem;
+    font-size: 1.05rem;
 }
 
 .menubar {
     padding: 1rem;
-    background-color: #00a2ff;
+    background-color: #0289d8;
     color: white;
+}
+
+.img {
+    width: 100vh;
+    height: 100vh;
 }

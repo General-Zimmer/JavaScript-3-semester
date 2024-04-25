@@ -57,6 +57,14 @@ app.get('/secretpage', (req, res) => {
   }
 });
 
+app.get('/supersecretpage', (req, res) => {
+  if (req.session.authenticated) {
+    res.render("secret2", {name: req.session.username, knownUser: req.session.username});
+  } else {
+    res.redirect('/login');
+  }
+});
+
 app.get('/demo', (req, res) => {
     if (req.session.authenticated) {
         res.send('You are authenticated');
