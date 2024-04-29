@@ -76,28 +76,11 @@ app.get('/demo', (req, res) => {
 });
 
 import apis from './api/api.js';
-import fs from 'fs';
+
 
 const api = apis.api;
 
 app.use('/api', api);
-
-api.post('/user', async (request, response) => {
-    let userName = request.body.userName;
-    await writeFile({name: userName});
-    response.status(200).send({status: 200});
-});
-
-async function readFile() {
-    let data = fs.readFileSync('users.json', {encoding: 'utf8'});
-    return JSON.parse(data);
-}
-
-async function writeFile(data) {
-    let existingUsers = await readFile();
-    existingUsers.push(data);
-    await fs.promises.writeFile('users.json', JSON.stringify(existingUsers), {encoding: 'utf8'});
-}
 
 
 app.listen(3000, () => {

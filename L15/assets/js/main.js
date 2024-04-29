@@ -1,5 +1,5 @@
 async function getUser() {
-    const response = await fetch('localhost:3000/api/', {
+    const response = await fetch('http://localhost:3000/api/', {
         method: 'GET',
         mode: 'cors',
         cache: 'no-cache',
@@ -12,15 +12,15 @@ async function getUser() {
 
 async function postData(url="http://localhost:3000/api/user", data={}) {
     const response = await fetch(url, {
-        method: 'POST',
-        mode: 'cors',
+        method: "POST",
+        mode: "cors",
         headers: {
-            'Content-Type': 'application/json'
+            "Content-Type": "application/json"
         },
         body: JSON.stringify(data)
-    });
-    let responseJson = await response.json();
-    if (responseJson.status === 200) {
+    })
+    let responseJSON = await response.json()
+    if (responseJSON.status == 200) {
         document.getElementById("status").innerHTML = "User created successfully!";
     }
 }
